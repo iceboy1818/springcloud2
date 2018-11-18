@@ -1,19 +1,18 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: nginx-controllerabc
+  name: gateway-controller
 spec:
   replicas: 2
   selector:
-    name: nginxabc
+    name: gateway
   template:
     metadata:
       labels:
-        name: nginxabc
+        name: gateway
     spec:
       containers:
-        - name: nginxabc
-          image: nginx:latest
-          imagePullPolicy: Never
+        - name: gateway
+          image: iceboy1818/microservice-gate-way:latest
           ports:
             - containerPort: 80
